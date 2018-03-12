@@ -1,0 +1,35 @@
+<body>
+    <div id="app">
+        <div>button count: {{clickCount}}</div>
+        <div>call method: {{someMethod(clickCount)}}, {{someMethod(clickCount)}} </div>
+        <div>show computed: {{someComputed}}, {{someComputed}}</div>
+        <button @click="plus">open console and click me</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: function() {
+                return {
+                    clickCount: 0,
+                }
+            },
+            methods: {
+                someMethod: function(i) {
+                    console.log("call method - " + i)
+                    return i
+                },
+                plus: function() {
+                    this.clickCount += 1
+                }
+            },
+            computed: {
+                someComputed: function() {
+                    console.log("call computed - " + this.clickCount)
+                    return this.clickCount
+                }
+            }
+        })
+    </script>
+
+</body>
